@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobify | Home</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.50) 0%, rgba(236, 230, 230, 0.5) 100%), radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.50) 50%);
+            background-size: auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: #DCD9D4;
+
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #333;
+        }
+
+
+        header {
+            background-color: #DCD9D4;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.50) 50%);
+            background-blend-mode: soft-light, screen;
+            color: rgb(97, 25, 25);
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0 70px 0 0;
+            padding: 0;
+            justify-content: flex-end;
+        }
+
+        nav h1 {
+            margin-right: auto;
+            font-weight: bold;
+            color: black;
+            font-size: 30px;
+            line-height: 8px;
+            text-decoration: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            margin-left: 10px;
+            color: black;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        #nav-toggle-label {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-right: 20px;
+            font-size: 24px;
+            color: black;
+        }
+
+        #nav-toggle-label:hover {
+            text-decoration: underline;
+        }
+
+        #nav-toggle-label span {
+            display: block;
+            width: 30px;
+            height: 5px;
+            background-color: black;
+            margin-bottom: 5px;
+        }
+
+        @media (min-width: 769px) {
+
+            #nav-toggle-label {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 73px;
+                right: 0;
+                width: fit-content;
+                background-color: #DCD9D4;
+                border-radius: 0 0 15px 15px;
+                padding: 30px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                transform: translateX(40%);
+            }
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+                align-items: inherit;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            margin-top: 0px;
+        }
+
+        .introduction {
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .introduction h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .introduction p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: background-color 0.4s, transform 0.5s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            color: #000;
+            background-color: #0056b3;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.50) 50%);
+            /* transform: translateY(-5px); */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .social-media {
+            margin-bottom: 10px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 10px 0;
+            color: black;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover,
+        .social-media a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links a:last-child,
+        .social-media a:last-child {
+            margin-right: 0;
+        }
+
+        .image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* transition: transform 0.4s ease; */
+        }
+
+        .image img {
+            width: 900px;
+            /* max-width: 100%;  */
+            height: 450px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 40px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: calc(100% - 80px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature h2 {
+            font-size: 33px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        .feature a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: background-color 0.4s, transform 0.5s ease;
+        }
+
+        .feature a:hover {
+            background-color: #0056b3;
+        }
+
+        .heading {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .heading:hover {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        .heading a {
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .about-us {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .about-us h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-us p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .faq {
+            margin-top: 50px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .jobinfo {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            margin-left: 20px;
+
+        }
+
+        .featured-jobs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .recent-jobs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .contact-us {
+            margin-top: 50px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-us h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-us p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .contact-us a {
+            background-color: grey;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Jobify</h1>
+            <label for="nav-toggle" id="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <input type="checkbox" id="nav-toggle">
+            <ul id="nav-links">
+                <li><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                <li><a class="nav-link" href="dash/">Candidate</a></li>
+                <li><a class="nav-link" href="hrdash/">HR</a></li>
+                <li><a class="nav-link" href="admin/">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="introduction">
+            <div class="heading">
+                <h1>Welcome to Jobify</h1>
+                <p>Find your dream job or hire the perfect candidate with Jobify.<br> We connect talented individuals
+                    with<br>
+                    exciting career opportunities.</p>
+                <a href="register/" class="cta-button">Register as Candidate</a>
+                <a href="/login/hrdash" class="cta-button">Employer Dashboard</a>
+            </div>
+            <div class="image"><img
+                    src="https://t3.ftcdn.net/jpg/04/51/83/22/360_F_451832202_e1QKPBz6HJm25BlNZwi0OT1404WGMs1i.jpg"
+                    alt="Background Image"></div>
+        </section>
+
+
+        <div class="jobinfo">
+            <section class="featured-jobs">
+                <h2>Featured Jobs</h2>
+                <p>Browse through your job listings.</p>
+                <h3>Data Analyst</h3>
+                <p>Company: Analytics Solutions LLC</p>
+                <p>Location: New York, NY</p>
+                <p>Description: Seeking a talented data analyst to join our growing team...</p>
+                <p>Salary: $1000 - $2000 per month</p>
+                <a href="/login/dash" class="cta-button">Browse Job Listings</a>
+            </section>
+
+            <section class="recent-jobs">
+                <h2>Recent Jobs</h2>
+                <p>Add recent job listings here.</p>
+                <h3>Data Analyst</h3>
+                <p>Company: Analytics Solutions LLC</p>
+                <p>Location: New York, NY</p>
+                <p>Description: Seeking a talented data analyst to join our growing team...</p>
+                <p>Salary: $1000 - $2000 per month</p>
+                <a href="/login/dash" class="cta-button">Recent Jobs</a>
+            </section>
+
+
+        </div>
+        <div class="feature">
+
+            <section class="about-us">
+                <h2>About Us</h2>
+                <p>At Jobify, we believe in bridging the gap between talented individuals and exciting career
+                    opportunities. Our mission is to revolutionize the job search process by providing a seamless
+                    platform where candidates can discover their dream jobs and employers can find the perfect match for
+                    their vacancies. With a user-friendly interface and innovative features, Jobify simplifies the
+                    hiring process for both candidates and employers, making it easier than ever to connect talent with
+                    opportunity. Join us in shaping the future of recruitment and unlock endless possibilities with
+                    Jobify.</p>
+            </section>
+
+            <section class="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>Q: How do I create an account on Jobify?</h3>
+                    <p>A: Creating an account on Jobify is quick and easy. Simply click on the "Register" button at the
+                        top right corner of the homepage and follow the prompts to provide your information. Once
+                        registered, you can start exploring job listings or posting vacancies if you're an employer.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: Can I browse job listings without creating an account?</h3>
+                    <p>A: Yes, you can browse job listings on Jobify without creating an account. However, to apply for
+                        jobs or save your favorite listings, you'll need to register as a candidate.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: How do I post a job opening as an employer?</h3>
+                    <p>A: Employers can easily post job openings on Jobify by accessing the "Employer Dashboard" after
+                        registering an account. From the dashboard, you'll find options to post new job listings, manage
+                        existing listings, and track applications from candidates.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: Is Jobify free to use?</h3>
+                    <p>A: Yes, Jobify offers free registration and browsing of job listings for candidates. However,
+                        there may be premium features available for employers or additional services that require
+                        payment. Check our pricing plans for more information.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Q: How can I contact support if I encounter any issues?</h3>
+                    <p>A: If you encounter any issues or have questions about Jobify, please don't hesitate to contact
+                        our support team. You can reach us through the "Contact Us" page on our website or by emailing
+                        support@jobify.com. We're here to help you every step of the way.</p>
+                </div>
+            </section>
+
+
+            <section class="contact-us">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or concerns, please don't hesitate to reach out to us. We're here to help
+                    you every step of the way. You can reach us through the "Contact Us" page on our website or by
+                    emailing <a href="mailto:support@jobify.com">support@jobify.com</a>.</p>
+            </section>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <div class="social-media">
+            <!-- Add social media icons and links -->
+        </div>
+        <div class="copyright">
+            &copy; 2024 Jobify. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("nav-toggle").addEventListener("change", function () {
+            var navLinks = document.getElementById("nav-links");
+            if (this.checked) {
+                navLinks.classList.add("active");
+            } else {
+                navLinks.classList.remove("active");
+            }
+        });
+    </script>
+</body>
+
+</html>
