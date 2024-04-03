@@ -1,4 +1,3 @@
-````markdown
 # Setting up Django Project with Virtual Environment on macOS
 
 This guide provides step-by-step instructions to set up a Django project with a virtual environment on macOS. By following these steps, you can isolate your project dependencies and manage multiple Django projects effortlessly.
@@ -10,7 +9,6 @@ Create a virtual environment using Python's built-in `venv` module.
 ```bash
 python3 -m venv <envname>
 ```
-````
 
 Replace `<envname>` with your desired environment name, for example:
 
